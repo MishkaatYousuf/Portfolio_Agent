@@ -1,22 +1,31 @@
 {
   "profile": {
-    "name": "Your Name",
+    "name": "Mishkaat Yousuf",
     "headline": "Computer Science Graduate | Software Engineering & AI",
-    "summary": "Replace this with the final public career summary from your portfolio.",
+    "summary": "Full Stack Developer and Software Engineer with experience building RESTful APIs, full-stack web applications, and AI/ML solutions using React.js, Node.js, Python, and Docker. Experienced in database integration, automated testing, code quality, and AI-powered workflows.",
     "location": "Pakistan"
   },
   "education": [
     {
       "institution": "FAST-NUCES",
-      "degree": "Bachelor of Science in Computer Science",
-      "details": "Replace with the public education details you want recruiters to see."
+      "degree": "Bachelors in Computer Science",
+      "details": ["Achieved Rector’s List & Gold Medal in Fall 2025 and Spring’26 & Dean’s List for 5 consecutive semesters from Spring’23 to Spring’25.", 
+                  "Relevant Courses: Database Systems, Data Science, Data Structures & Algorithms, Object-Oriented Programming, Operating Systems, Software Engineering, Artificial Intelligence, Deep Learning and Perception, Information Security, Agile Software Project Management, Recommender Systems, Bioinformatics.", 
+                  "CGPA: 3.71/4.0"]
     }
   ],
   "experience": [
     {
       "organization": "FlyRank AI",
       "role": "Backend AI Engineering Intern",
-      "details": "Replace this with the exact public description of your internship and only the responsibilities you have actually completed."
+      "period": "July 2026 to present",
+      "details": "Built RESTful backend services with Node.js/Express, implementing CRUD APIs, persistence, validation, health checks, and API documentation. Containerized PostgreSQL infrastructure with Docker and connected backend services through environment-based configuration."
+    },
+    {
+      "organization": "10Pearls",
+      "role": "MERN Intern",
+      "period": "September 2025 to November 2025",
+      "details": "Built and supported full-stack applications using React.js, Node.js, RESTful APIs, and MySQL. Implemented application logging and automated testing with Pino Logger, Mocha, and Jest. Used SonarQube for static code analysis and code quality improvement, developed and optimized RESTful APIs, integrated MySQL databases, and collaborated using Git."
     }
   ],
   "skills": [
@@ -40,26 +49,27 @@
       "category": "Backend",
       "summary": "A small REST API for managing tasks with persistent storage and API documentation.",
       "technologies": ["Node.js", "Express", "SQLite", "REST API", "Swagger"],
-      "details": "Replace this with the exact description of your implementation, including authentication, testing, deployment, or database details only if they are actually part of the project.",
+      "details": "Task API is a RESTful backend application built with Node.js, Express.js, and PostgreSQL for managing tasks. It supports full CRUD operations through REST API endpoints. The project uses Docker and Docker Compose to run the API and database together. It automatically creates the database table and seeds sample tasks when needed. Swagger UI is included for API documentation, and PostgreSQL data is persisted using a Docker volume.",
       "evidence": [
         "API endpoints can be demonstrated locally.",
         "Swagger/OpenAPI documentation is available when configured."
       ],
       "links": {
-        "github": "https://github.com/your-username/your-repo",
+        "github": "https://github.com/MishkaatYousuf/task-api-flyrankAI.git",
         "live": ""
       }
     },
     {
       "id": "project-2",
-      "title": "Full-Stack Web Application",
+      "title": "Electonic Logging Device Application",
       "category": "Full Stack",
-      "summary": "A React-based frontend connected to a backend API.",
-      "technologies": ["React", "Vite", "Node.js", "Express"],
-      "details": "Replace this with one of your real portfolio projects and its verified technical details.",
+      "summary": "ELD Trip Planner is a full-stack application for property-carrying truck drivers that plans trips according to FMCSA Hours-of-Service (HOS) rules.",
+      "technologies": [" Django", "Django REST Framework", "PostgreSQL/Neon", "React", "Vite", "Leaflet", "OSRM", "OpenStreetMap","Vercel"],
+      "details": ["Users enter their current location, pickup location, drop-off location, and used cycle hours. The system generates a driving route, required fuel/break/rest stops, and daily ELD log sheets.",
+                  "The backend uses a Django REST API with an HOS calculation engine, while the React frontend displays the route, trip statistics, stops, and automatically generated daily log sheets. Routing and geocoding are handled using OSRM and OpenStreetMap Nominatim."],
       "evidence": ["Frontend and backend can be demonstrated through the project."],
       "links": {
-        "github": "https://github.com/your-username/your-repo",
+        "github": "https://github.com/MishkaatYousuf/ElectonicLoggingDevice-app.git",
         "live": ""
       }
     },
@@ -75,17 +85,19 @@
         "The Gemini model calls the search_portfolio function before answering."
       ],
       "links": {
-        "github": "",
+        "github": "https://github.com/MishkaatYousuf/Portfolio_Agent.git",
         "live": ""
       }
     }
   ],
   "achievements": [
-    "Replace with public awards, certifications, or other verified achievements."
+    "Awarded Best Female Team award in CodersCup 2022.",
+    "Achieved Rector’s List & Gold Medal in Fall 2025 and Spring’26",
+    "Dean’s List for 5 consecutive semesters from Spring’23 to Spring’25."
   ],
   "contact": {
-    "github": "https://github.com/your-username",
-    "linkedin": "https://www.linkedin.com/in/your-profile",
+    "github": "https://github.com/MishkaatYousuf",
+    "linkedin": "http://www.linkedin.com/in/mishkaat-yousuf",
     "resume": ""
   }
 }
