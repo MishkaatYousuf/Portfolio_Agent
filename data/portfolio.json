@@ -1,0 +1,91 @@
+{
+  "profile": {
+    "name": "Your Name",
+    "headline": "Computer Science Graduate | Software Engineering & AI",
+    "summary": "Replace this with the final public career summary from your portfolio.",
+    "location": "Pakistan"
+  },
+  "education": [
+    {
+      "institution": "FAST-NUCES",
+      "degree": "Bachelor of Science in Computer Science",
+      "details": "Replace with the public education details you want recruiters to see."
+    }
+  ],
+  "experience": [
+    {
+      "organization": "FlyRank AI",
+      "role": "Backend AI Engineering Intern",
+      "details": "Replace this with the exact public description of your internship and only the responsibilities you have actually completed."
+    }
+  ],
+  "skills": [
+    "JavaScript",
+    "Node.js",
+    "Express",
+    "Python",
+    "React",
+    "Vite",
+    "Django REST Framework",
+    "PostgreSQL",
+    "SQLite",
+    "REST APIs",
+    "Git",
+    "AI-assisted software development"
+  ],
+  "projects": [
+    {
+      "id": "project-1",
+      "title": "Backend CRUD API",
+      "category": "Backend",
+      "summary": "A small REST API for managing tasks with persistent storage and API documentation.",
+      "technologies": ["Node.js", "Express", "SQLite", "REST API", "Swagger"],
+      "details": "Replace this with the exact description of your implementation, including authentication, testing, deployment, or database details only if they are actually part of the project.",
+      "evidence": [
+        "API endpoints can be demonstrated locally.",
+        "Swagger/OpenAPI documentation is available when configured."
+      ],
+      "links": {
+        "github": "https://github.com/your-username/your-repo",
+        "live": ""
+      }
+    },
+    {
+      "id": "project-2",
+      "title": "Full-Stack Web Application",
+      "category": "Full Stack",
+      "summary": "A React-based frontend connected to a backend API.",
+      "technologies": ["React", "Vite", "Node.js", "Express"],
+      "details": "Replace this with one of your real portfolio projects and its verified technical details.",
+      "evidence": ["Frontend and backend can be demonstrated through the project."],
+      "links": {
+        "github": "https://github.com/your-username/your-repo",
+        "live": ""
+      }
+    },
+    {
+      "id": "project-3",
+      "title": "AI Portfolio Guide",
+      "category": "AI",
+      "summary": "A portfolio-grounded AI agent that helps visitors understand projects, skills, education, achievements, and experience.",
+      "technologies": ["React", "Node.js", "Express", "Gemini API", "Function Calling"],
+      "details": "The agent uses a search_portfolio tool to retrieve relevant information from a portfolio.json knowledge base before generating an answer.",
+      "evidence": [
+        "The portfolio knowledge base is read by the backend at request time.",
+        "The Gemini model calls the search_portfolio function before answering."
+      ],
+      "links": {
+        "github": "",
+        "live": ""
+      }
+    }
+  ],
+  "achievements": [
+    "Replace with public awards, certifications, or other verified achievements."
+  ],
+  "contact": {
+    "github": "https://github.com/your-username",
+    "linkedin": "https://www.linkedin.com/in/your-profile",
+    "resume": ""
+  }
+}
