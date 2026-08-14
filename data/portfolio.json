@@ -88,6 +88,37 @@
         "github": "https://github.com/MishkaatYousuf/Portfolio_Agent.git",
         "live": ""
       }
+    },
+    {
+      "id": "project-4",
+      "title": "FinSight AI: Agentic System for Automated Financial Close & Compliance",
+      "category": "AI / Full Stack",
+      "summary": "An AI-powered agentic platform for automating financial close and compliance through invoice processing, reconciliation, journal validation, and financial reporting.",
+      "technologies": [
+        "React",
+        "NestJS",
+        "FastAPI",
+        "Docker",
+        "AWS EC2",
+        "Terraform",
+        "OCR",
+        "AI/Agentic Workflows",
+        "Grafana",
+        "Prometheus"
+      ],
+      "details": "FinSight AI is a Final Year Project (2025–2026) focused on automating financial close and compliance using an AI-powered agentic system. The platform supports OCR-based invoice processing, reconciliation analysis, journal validation, and automated financial reporting. It is built using a full-stack microservices architecture with React, NestJS, and FastAPI, containerized with Docker and deployed on AWS EC2 using Terraform for infrastructure provisioning. The system also integrates secure authentication, encryption, AI-driven workflows, and observability through Grafana and Prometheus.",
+      "evidence": [
+        "OCR-based invoice processing can be demonstrated through the platform.",
+        "Reconciliation analysis and journal validation workflows are supported.",
+        "Automated financial reporting is integrated into the system.",
+        "The microservices architecture uses React, NestJS, and FastAPI with Docker.",
+        "Infrastructure deployment is managed using AWS EC2 and Terraform.",
+        "Grafana and Prometheus are integrated for monitoring and observability."
+      ],
+      "links": {
+        "github": "https://github.com/AyeshaAnsari-18/FinSight-AI.git",
+        "live": ""
+      }
     }
   ],
   "achievements": [
