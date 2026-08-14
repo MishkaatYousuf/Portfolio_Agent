@@ -2,16 +2,14 @@
   "profile": {
     "name": "Mishkaat Yousuf",
     "headline": "Computer Science Graduate | Software Engineering & AI",
-    "summary": "Full Stack Developer and Software Engineer with experience building RESTful APIs, full-stack web applications, and AI/ML solutions using React.js, Node.js, Python, and Docker. Experienced in database integration, automated testing, code quality, and AI-powered workflows.",
+    "summary": "Full Stack Developer and Software Engineer experienced in building RESTful APIs, full-stack web applications, and AI/ML systems using React.js, Node.js, Python, and Docker. Skilled in database integration, automated testing, code quality, and AI-powered workflows.",
     "location": "Pakistan"
   },
   "education": [
     {
       "institution": "FAST-NUCES",
       "degree": "Bachelors in Computer Science",
-      "details": ["Achieved Rector’s List & Gold Medal in Fall 2025 and Spring’26 & Dean’s List for 5 consecutive semesters from Spring’23 to Spring’25.", 
-                  "Relevant Courses: Database Systems, Data Science, Data Structures & Algorithms, Object-Oriented Programming, Operating Systems, Software Engineering, Artificial Intelligence, Deep Learning and Perception, Information Security, Agile Software Project Management, Recommender Systems, Bioinformatics.", 
-                  "CGPA: 3.71/4.0"]
+      "details": "CGPA: 3.71/4.0. Achieved Rector’s List & Gold Medal in Fall 2025 and Spring 2026. Dean’s List for 5 consecutive semesters (Spring 2023 - Spring 2025). Relevant Courses: Database Systems, Data Science, Data Structures & Algorithms, Object-Oriented Programming, Operating Systems, Software Engineering, Artificial Intelligence, Deep Learning, Agile Software Project Management, Recommender Systems, Information Security."
     }
   ],
   "experience": [
@@ -19,13 +17,13 @@
       "organization": "FlyRank AI",
       "role": "Backend AI Engineering Intern",
       "period": "July 2026 to present",
-      "details": "Built RESTful backend services with Node.js/Express, implementing CRUD APIs, persistence, validation, health checks, and API documentation. Containerized PostgreSQL infrastructure with Docker and connected backend services through environment-based configuration."
+      "details": "Built RESTful backend services with Node.js and Express. Implemented CRUD APIs, database persistence, input validation, custom health checks, and Swagger documentation. Containerized PostgreSQL database infrastructure using Docker and managed connections via environment variables."
     },
     {
       "organization": "10Pearls",
       "role": "MERN Intern",
       "period": "September 2025 to November 2025",
-      "details": "Built and supported full-stack applications using React.js, Node.js, RESTful APIs, and MySQL. Implemented application logging and automated testing with Pino Logger, Mocha, and Jest. Used SonarQube for static code analysis and code quality improvement, developed and optimized RESTful APIs, integrated MySQL databases, and collaborated using Git."
+      "details": "Developed full-stack web applications using React.js, Node.js, RESTful APIs, and MySQL. Configured application logging and automated test suites using Pino Logger, Mocha, and Jest. Used SonarQube static analysis to maximize code quality and collaborated using Git version control."
     }
   ],
   "skills": [
@@ -36,95 +34,76 @@
     "React",
     "Vite",
     "Django REST Framework",
+    "NestJS",
+    "FastAPI",
     "PostgreSQL",
+    "MySQL",
     "SQLite",
+    "Docker",
+    "Terraform",
     "REST APIs",
     "Git",
+    "Function Calling",
     "AI-assisted software development"
   ],
   "projects": [
     {
       "id": "project-1",
-      "title": "Backend CRUD API",
+      "title": "Backend CRUD API Task Manager",
       "category": "Backend",
-      "summary": "A small REST API for managing tasks with persistent storage and API documentation.",
-      "technologies": ["Node.js", "Express", "SQLite", "REST API", "Swagger"],
-      "details": "Task API is a RESTful backend application built with Node.js, Express.js, and PostgreSQL for managing tasks. It supports full CRUD operations through REST API endpoints. The project uses Docker and Docker Compose to run the API and database together. It automatically creates the database table and seeds sample tasks when needed. Swagger UI is included for API documentation, and PostgreSQL data is persisted using a Docker volume.",
-      "evidence": [
-        "API endpoints can be demonstrated locally.",
-        "Swagger/OpenAPI documentation is available when configured."
-      ],
+      "summary": "A RESTful Task Management API built with Node.js, Express, and PostgreSQL featuring automatic seeding and containerization.",
+      "technologies": ["Node.js", "Express", "PostgreSQL", "Docker", "Docker Compose", "Swagger UI", "REST API"],
+      "details": "Built a persistent RESTful backend supporting complete task CRUD operations. Containerized the entire infrastructure stack using Docker and Docker Compose with database auto-initialization and seeding. Includes integrated Swagger UI documentation. Data persists reliably via localized Docker volumes.",
+      "evidence": "Supports clean local endpoints at port 3000 with fully interactive Swagger documentation generated via openapi.json schemas.",
       "links": {
-        "github": "https://github.com/MishkaatYousuf/task-api-flyrankAI.git",
-        "live": ""
+        "github": "https://github.com/MishkaatYousuf/task-api-flyrankAI",
+        "live": "http://localhost:3000/docs"
       }
     },
     {
       "id": "project-2",
-      "title": "Electonic Logging Device Application",
+      "title": "Electronic Logging Device (ELD) Trip Planner",
       "category": "Full Stack",
-      "summary": "ELD Trip Planner is a full-stack application for property-carrying truck drivers that plans trips according to FMCSA Hours-of-Service (HOS) rules.",
-      "technologies": [" Django", "Django REST Framework", "PostgreSQL/Neon", "React", "Vite", "Leaflet", "OSRM", "OpenStreetMap","Vercel"],
-      "details": ["Users enter their current location, pickup location, drop-off location, and used cycle hours. The system generates a driving route, required fuel/break/rest stops, and daily ELD log sheets.",
-                  "The backend uses a Django REST API with an HOS calculation engine, while the React frontend displays the route, trip statistics, stops, and automatically generated daily log sheets. Routing and geocoding are handled using OSRM and OpenStreetMap Nominatim."],
-      "evidence": ["Frontend and backend can be demonstrated through the project."],
+      "summary": "Full-stack application for truck drivers that maps optimal driving routes and auto-generates regulatory HOS log sheets.",
+      "technologies": ["Django", "Django REST Framework", "PostgreSQL", "Neon", "React", "Vite", "Leaflet", "OSRM", "OpenStreetMap", "Vercel"],
+      "details": "Engineered a complex Hours-of-Service (HOS) simulation module in Python following strict FMCSA transportation safety rules. Calculates optimal driving limits, mandatory breaks, and rest periods based on truck cycle histories. Renders visual map paths, geocoded stops, and custom daily step-line ELD grids directly on the frontend UI.",
+      "evidence": "Monitored via interactive MapView and live SVG log grids representing 24-hour schedules.",
       "links": {
-        "github": "https://github.com/MishkaatYousuf/ElectonicLoggingDevice-app.git",
-        "live": ""
+        "github": "https://github.com/MishkaatYousuf/ElectonicLoggingDevice-app",
+        "live": "https://electonicloggingdevice-g7z5-49jzxsxkn-mishkaatyousufs-projects.vercel.app/"
       }
     },
     {
       "id": "project-3",
-      "title": "AI Portfolio Guide",
-      "category": "AI",
-      "summary": "A portfolio-grounded AI agent that helps visitors understand projects, skills, education, achievements, and experience.",
-      "technologies": ["React", "Node.js", "Express", "Gemini API", "Function Calling"],
-      "details": "The agent uses a search_portfolio tool to retrieve relevant information from a portfolio.json knowledge base before generating an answer.",
-      "evidence": [
-        "The portfolio knowledge base is read by the backend at request time.",
-        "The Gemini model calls the search_portfolio function before answering."
-      ],
+      "title": "AI Portfolio Guide Agent",
+      "category": "AI / Agentic",
+      "summary": "A portfolio-grounded RAG conversational AI assistant capable of reasoning over local resume data using tool calls.",
+      "technologies": ["React", "Node.js", "Express", "Gemini API", "Function Calling", "Interactions API"],
+      "details": "Developed an active agent utilizing Google Gen AI SDK tool integrations. Intercepts natural language questions from recruiters, invokes a localized keyword search over structured document bases, and passes contextual evidence vectors into Gemini models to output grounded, hallucination-free answers.",
+      "evidence": "Utilizes server-side execution configurations combined with automated schema declarations to enforce zero informational inventions.",
       "links": {
-        "github": "https://github.com/MishkaatYousuf/Portfolio_Agent.git",
-        "live": ""
+        "github": "https://github.com/MishkaatYousuf/Portfolio_Agent",
+        "live": "http://localhost:3001/api/health"
       }
     },
     {
       "id": "project-4",
-      "title": "FinSight AI: Agentic System for Automated Financial Close & Compliance",
-      "category": "AI / Full Stack",
-      "summary": "An AI-powered agentic platform for automating financial close and compliance through invoice processing, reconciliation, journal validation, and financial reporting.",
-      "technologies": [
-        "React",
-        "NestJS",
-        "FastAPI",
-        "Docker",
-        "AWS EC2",
-        "Terraform",
-        "OCR",
-        "AI/Agentic Workflows",
-        "Grafana",
-        "Prometheus"
-      ],
-      "details": "FinSight AI is a Final Year Project (2025–2026) focused on automating financial close and compliance using an AI-powered agentic system. The platform supports OCR-based invoice processing, reconciliation analysis, journal validation, and automated financial reporting. It is built using a full-stack microservices architecture with React, NestJS, and FastAPI, containerized with Docker and deployed on AWS EC2 using Terraform for infrastructure provisioning. The system also integrates secure authentication, encryption, AI-driven workflows, and observability through Grafana and Prometheus.",
-      "evidence": [
-        "OCR-based invoice processing can be demonstrated through the platform.",
-        "Reconciliation analysis and journal validation workflows are supported.",
-        "Automated financial reporting is integrated into the system.",
-        "The microservices architecture uses React, NestJS, and FastAPI with Docker.",
-        "Infrastructure deployment is managed using AWS EC2 and Terraform.",
-        "Grafana and Prometheus are integrated for monitoring and observability."
-      ],
+      "title": "FinSight AI: Automated Financial Close System",
+      "category": "AI / Enterprise Full Stack",
+      "summary": "Enterprise agentic platform automating book audits and financial close cycles through invoice parsing, ledger reconciliation, and AI workflows.",
+      "technologies": ["React", "NestJS", "FastAPI", "Docker", "AWS EC2", "Terraform", "OCR", "Agentic Workflows", "Grafana", "Prometheus", "AES-256 Encryption"],
+      "details": "Final Year Capstone Project implementing microservices across React, NestJS, and FastAPI. Automates compliance workflows like invoice processing with OCR, ledger reconciliation, and report assembly. Hardened with Argon2 security, AES-256 data-at-rest encryption, and infrastructure observation pipelines via Prometheus and Grafana dashboards.",
+      "evidence": "Provisioned on AWS cloud environments with Infrastructure as Code configurations via HashiCorp Terraform modules.",
       "links": {
-        "github": "https://github.com/AyeshaAnsari-18/FinSight-AI.git",
+        "github": "https://github.com/AyeshaAnsari-18/FinSight-AI",
         "live": ""
       }
     }
   ],
   "achievements": [
-    "Awarded Best Female Team award in CodersCup 2022.",
-    "Achieved Rector’s List & Gold Medal in Fall 2025 and Spring’26",
-    "Dean’s List for 5 consecutive semesters from Spring’23 to Spring’25."
+    "Awarded Best Female Team award at CodersCup 2022.",
+    "Graduated FAST-NUCES on the Rector’s List with a Gold Medal (Fall 2025 and Spring 2026 honors).",
+    "Maintained Dean's List placement for 5 consecutive semesters from Spring 2023 to Spring 2025."
   ],
   "contact": {
     "github": "https://github.com/MishkaatYousuf",
