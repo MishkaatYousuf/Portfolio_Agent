@@ -200,3 +200,49 @@ h1 {
     max-width: 90%;
   }
 }
+/* --- Add this markdown support to the bottom of your styles.css --- */
+.message-bubble h1, .message-bubble h2, .message-bubble h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 8px 0 4px 0;
+  color: inherit;
+}
+
+.message-bubble p {
+  margin: 0 0 8px 0;
+}
+
+.message-bubble p:last-child {
+  margin-bottom: 0;
+}
+
+.message-bubble ul, .message-bubble ol {
+  margin: 4px 0 8px 0;
+  padding-left: 20px;
+}
+
+.message-bubble li {
+  margin-bottom: 4px;
+}
+
+.message-bubble a {
+  color: #58a6ff;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.message-row.user .message-bubble a {
+  color: #ffffff;
+}
+
+/* Smooth custom scrollbar for chat viewport */
+.messages::-webkit-scrollbar {
+  width: 6px;
+}
+.messages::-webkit-scrollbar-track {
+  background: transparent;
+}
+.messages::-webkit-scrollbar-thumb {
+  background: #dedede;
+  border-radius: 3px;
+}
