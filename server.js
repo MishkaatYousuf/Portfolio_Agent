@@ -9,7 +9,7 @@ import { GoogleGenAI, Type, FunctionCallingConfigMode } from '@google/genai';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const PORT = Number(process.env.PORT || 3001);
-const MODEL = 'gemini-2.5-flash';
+const MODEL = 'gemini-3.6-flash';
 
 if (!process.env.GEMINI_API_KEY) {
   console.error('Missing GEMINI_API_KEY. Create a .env file from .env.example.');
