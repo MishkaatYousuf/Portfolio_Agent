@@ -40,49 +40,56 @@ function normalize(value) {
 function collectSearchableItems(portfolio) {
   const items = [];
 
+  // 1. Profile Indexing
   if (portfolio.profile) {
     items.push({
       type: 'profile',
       title: portfolio.profile.headline || 'Profile',
-      text: `${portfolio.profile.name} ${portfolio.profile.headline} ${portfolio.profile.summary} ${portfolio.profile.location}`,
+      text: `${portfolio.profile.name || ''} ${portfolio.profile.headline || ''} ${portfolio.profile.summary || ''} ${portfolio.profile.location || ''}`,
       data: portfolio.profile
     });
   }
 
+  // 2. Experience Indexing 
   for (const item of portfolio.experience || []) {
     items.push({
       type: 'experience',
       title: `${item.role} at ${item.organization}`,
-      text: `${item.role} ${item.organization} ${item.details}`,
+      text: `${item.role || ''} ${item.organization || ''} ${item.period || ''} ${item.details || ''}`,
       data: item
     });
   }
 
+  // 3. Education Indexing 
   for (const item of portfolio.education || []) {
     items.push({
       type: 'education',
       title: `${item.degree} — ${item.institution}`,
-      text: `${item.degree} ${item.institution} ${item.details}`,
+      text: `${item.degree || ''} ${item.institution || ''} ${item.details || ''}`,
       data: item
     });
   }
 
+  // 4. Projects Indexing
   for (const item of portfolio.projects || []) {
     items.push({
       type: 'project',
       title: item.title,
       text: [
-        item.title,
-        item.category,
-        item.summary,
+        item.title || '',
+        item.category || '',
+        item.summary || '',
         ...(item.technologies || []),
-        item.details,
-        ...(item.evidence || [])
+        item.details || '',
+        item.evidence || '',
+        item.links?.github || '',
+        item.links?.live || ''
       ].join(' '),
       data: item
     });
   }
 
+  // 5. Skills Indexing
   items.push({
     type: 'skills',
     title: 'Technical Skills',
@@ -90,6 +97,7 @@ function collectSearchableItems(portfolio) {
     data: { skills: portfolio.skills || [] }
   });
 
+  // 6. Achievements Indexing
   items.push({
     type: 'achievements',
     title: 'Achievements',
@@ -99,6 +107,7 @@ function collectSearchableItems(portfolio) {
 
   return items;
 }
+
 
 function scoreItem(query, item) {
   const normalizedQuery = normalize(query);
@@ -237,12 +246,7 @@ async function answerQuestion(message) {
   }
 
   const finalConfig = {
-    systemInstruction,
-    tools: [
-      {
-        functionDeclarations: [searchPortfolioDeclaration]
-      }
-    ]
+  systemInstruction
   };
 
   const finalResponse = await ai.models.generateContent({
