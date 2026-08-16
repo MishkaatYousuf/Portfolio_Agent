@@ -45,7 +45,18 @@ function collectSearchableItems(portfolio) {
     items.push({
       type: 'profile',
       title: portfolio.profile.headline || 'Profile',
-      text: `${portfolio.profile.name || ''} ${portfolio.profile.headline || ''} ${portfolio.profile.summary || ''} ${portfolio.profile.location || ''}`,
+      text: [
+        'profile',
+        'about',
+        'summary',
+        'background',
+        'introduction',
+        'bio',
+        portfolio.profile.name || '',
+        portfolio.profile.headline || '',
+        portfolio.profile.summary || '',
+        portfolio.profile.location || ''
+      ].join(' '),
       data: portfolio.profile
     });
   }
@@ -55,7 +66,18 @@ function collectSearchableItems(portfolio) {
     items.push({
       type: 'experience',
       title: `${item.role} at ${item.organization}`,
-      text: `${item.role || ''} ${item.organization || ''} ${item.period || ''} ${item.details || ''}`,
+      text: [
+        'experience',
+        'work',
+        'employment',
+        'career',
+        'internship',
+        'professional experience',
+        item.role || '',
+        item.organization || '',
+        item.period || '',
+        item.details || ''
+      ].join(' '),
       data: item
     });
   }
@@ -65,7 +87,19 @@ function collectSearchableItems(portfolio) {
     items.push({
       type: 'education',
       title: `${item.degree} — ${item.institution}`,
-      text: `${item.degree || ''} ${item.institution || ''} ${item.details || ''}`,
+      text: [
+        'education',
+        'educational',
+        'academic',
+        'academics',
+        'degree',
+        'university',
+        'college',
+        'background',
+        item.degree || '',
+        item.institution || '',
+        item.details || ''
+      ].join(' '),
       data: item
     });
   }
@@ -93,7 +127,16 @@ function collectSearchableItems(portfolio) {
   items.push({
     type: 'skills',
     title: 'Technical Skills',
-    text: (portfolio.skills || []).join(' '),
+    text: [
+      'skills',
+      'skill',
+      'technical skills',
+      'technologies',
+      'technology',
+      'tech stack',
+      'stack',
+      ...(portfolio.skills || [])
+    ].join(' '),
     data: { skills: portfolio.skills || [] }
   });
 
@@ -163,7 +206,8 @@ You are the AI Portfolio Guide for a personal portfolio website.
 Your single job is to help visitors understand the portfolio owner's professional background, projects, skills, education, achievements, and experience.
 
 GROUNDING RULES:
-- Always use the search_portfolio tool before answering a portfolio question.
+- For every portfolio question, rely only on information retrieved from the search_portfolio tool.
+- The application will retrieve the relevant portfolio information before asking you to produce the final answer.
 - Treat the tool result as the source of truth.
 - Never invent technologies, responsibilities, achievements, metrics, user counts, employers, or project features.
 - If the tool finds no supporting evidence, clearly say the portfolio does not contain enough information to confirm the answer.
@@ -184,14 +228,18 @@ FORMAT:
 `;
 
 async function answerQuestion(message) {
-  const contents = [
+  // --------------------------------------------------
+  // STEP 1: Ask Gemini to use the portfolio tool
+  // --------------------------------------------------
+
+  const initialContents = [
     {
       role: 'user',
       parts: [{ text: message }]
     }
   ];
 
-  const config = {
+  const searchConfig = {
     systemInstruction,
     tools: [
       {
@@ -208,54 +256,103 @@ async function answerQuestion(message) {
 
   const firstResponse = await ai.models.generateContent({
     model: MODEL,
-    contents,
-    config
+    contents: initialContents,
+    config: searchConfig
   });
 
   const functionCalls = firstResponse.functionCalls || [];
 
+  console.log('FIRST RESPONSE FUNCTION CALLS:');
+  console.log(JSON.stringify(functionCalls, null, 2));
+
   if (functionCalls.length === 0) {
-    return firstResponse.text?.trim() || 'I could not generate a response.';
+    console.error('Gemini did not request search_portfolio.');
+    console.error(JSON.stringify(firstResponse, null, 2));
+
+    return (
+      firstResponse.text?.trim() ||
+      'I could not retrieve portfolio information.'
+    );
   }
 
-  // This MVP uses one tool, but supports multiple calls if the model requests them.
-  contents.push(firstResponse.candidates[0].content);
+  // --------------------------------------------------
+  // STEP 2: Execute the requested tool calls
+  // --------------------------------------------------
+
+  const toolResults = [];
 
   for (const functionCall of functionCalls) {
     if (functionCall.name !== 'search_portfolio') {
       continue;
     }
 
-    const result = await searchPortfolio({
-      query: functionCall.args?.query || message
-    });
+    const query = functionCall.args?.query || message;
 
-    const functionResponsePart = {
-      name: functionCall.name,
-      response: { result }
-    };
+    console.log('SEARCH QUERY:', query);
 
-    if (functionCall.id) {
-      functionResponsePart.id = functionCall.id;
-    }
+    const result = await searchPortfolio({ query });
 
-    contents.push({
-      role: 'user',
-      parts: [{ functionResponse: functionResponsePart }]
-    });
+    console.log('SEARCH RESULT:');
+    console.log(JSON.stringify(result, null, 2));
+
+    toolResults.push(result);
   }
 
-  const finalConfig = {
-  systemInstruction
-  };
+  // --------------------------------------------------
+  // STEP 3: Give retrieved evidence to Gemini
+  // as ordinary text and ask for the final answer.
+  //
+  // IMPORTANT:
+  // There are NO tools in this second request.
+  // --------------------------------------------------
+
+  const evidence = JSON.stringify(toolResults, null, 2);
+
+  const finalContents = [
+    {
+      role: 'user',
+      parts: [
+        {
+          text: `
+Visitor question:
+${message}
+
+Retrieved portfolio evidence:
+${evidence}
+
+Using ONLY the retrieved portfolio evidence above, answer the visitor's question.
+
+Rules:
+- Do not invent or infer facts that are not supported by the evidence.
+- If the evidence does not contain enough information, say so clearly.
+- Keep the answer concise and recruiter-friendly.
+- Mention specific projects, experience, education, or skills when relevant.
+- Include public links from the evidence when they are relevant.
+`
+        }
+      ]
+    }
+  ];
 
   const finalResponse = await ai.models.generateContent({
     model: MODEL,
-    contents,
-    config: finalConfig
+    contents: finalContents,
+    config: {
+      systemInstruction
+    }
   });
 
-  return finalResponse.text?.trim() || 'I could not generate a final answer.';
+  console.log('FINAL RESPONSE:');
+  console.log(JSON.stringify(finalResponse, null, 2));
+
+  const finalText = finalResponse.text?.trim();
+
+  if (!finalText) {
+    console.error('FINAL RESPONSE DID NOT CONTAIN TEXT.');
+    return 'I could not generate a final answer.';
+  }
+
+  return finalText;
 }
 
 app.get('/api/health', (_req, res) => {

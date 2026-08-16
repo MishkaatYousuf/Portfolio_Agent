@@ -77,9 +77,9 @@
       "id": "project-3",
       "title": "AI Portfolio Guide Agent",
       "category": "AI / Agentic",
-      "summary": "A portfolio-grounded RAG conversational AI assistant capable of reasoning over local resume data using tool calls.",
-      "technologies": ["React", "Node.js", "Express", "Gemini API", "Function Calling", "Interactions API"],
-      "details": "Developed an active agent utilizing Google Gen AI SDK tool integrations. Intercepts natural language questions from recruiters, invokes a localized keyword search over structured document bases, and passes contextual evidence vectors into Gemini models to output grounded, hallucination-free answers.",
+      "summary": "A portfolio-grounded conversational AI assistant that uses function calling to search a structured local knowledge base and generate evidence-based responses.",
+      "technologies": ["React", "Node.js", "Express", "Gemini API", "Function Calling"],
+      "details": "Developed an AI portfolio assistant using the Google Gen AI SDK and function calling. The agent receives recruiter questions, searches a structured local portfolio knowledge base, and uses the retrieved evidence to generate grounded responses.",
       "evidence": "Utilizes server-side execution configurations combined with automated schema declarations to enforce zero informational inventions.",
       "links": {
         "github": "https://github.com/MishkaatYousuf/Portfolio_Agent",
